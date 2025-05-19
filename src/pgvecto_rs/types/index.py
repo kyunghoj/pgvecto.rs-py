@@ -76,6 +76,21 @@ class Ivf:
         return {"ivf": child}
 
 
+class Vamana:
+    def __init__(
+        self, nlist: Optional[int] = None, quantization: Optional[Quantization] = None
+    ):
+        self.nlist = nlist
+        self.quantization = quantization
+
+    def dump(self) -> dict:
+        child: dict[str, Any] = {}
+        if self.quantization is not None:
+            child.update(self.quantization.dump())
+        if self.nlist is not None:
+            child.update({"nlist": self.nlist})
+        return {"vamana": child}
+
 class IndexOption:
     def __init__(
         self,
