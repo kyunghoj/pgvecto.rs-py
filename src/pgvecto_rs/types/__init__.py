@@ -13,5 +13,6 @@ __all__ = [
     "Hnsw",
     "Ivf",
     "Flat",
+    "Vamana",
     "IndexOption",
 ]
