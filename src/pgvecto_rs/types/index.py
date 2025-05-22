@@ -78,23 +78,27 @@ class Ivf:
 
 class Vamana:
     def __init__(
-        self, nlist: Optional[int] = None, quantization: Optional[Quantization] = None
+        self,
+        alpha: Optional[float] = None, # 1.2
+        r: Optional[int] = None, # node 하나당 최대 엣지 개수
+        l_search: Optional[int] = None, # index 구축시 서치 깊이 (노드 몇 개): 클수록 정확도 높아지나 오래걸림
+        quantization: Optional[Quantization] = None
     ):
-        self.nlist = nlist
+        self.alpha = alpha
+        self.r = r
+        self.l_search = l_search
         self.quantization = quantization
 
     def dump(self) -> dict:
         child: dict[str, Any] = {}
         if self.quantization is not None:
             child.update(self.quantization.dump())
-        if self.nlist is not None:
-            child.update({"nlist": self.nlist})
         return {"vamana": child}
 
 class IndexOption:
     def __init__(
         self,
-        index: Union[Hnsw, Ivf, Flat],
+        index: Union[Hnsw, Ivf, Flat, Vamana],
         threads: Optional[int] = None,
     ):
         self.index = index
