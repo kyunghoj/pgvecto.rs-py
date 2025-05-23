@@ -1,5 +1,5 @@
 from .bvector import BinaryVector
-from .index import Flat, Hnsw, IndexOption, Ivf, Quantization
+from .index import Flat, Hnsw, IndexOption, Ivf, Quantization, Vamana
 from .svector import SparseVector
 from .vecf16 import Float16Vector
 from .vector import Vector
