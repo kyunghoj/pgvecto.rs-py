@@ -93,6 +93,12 @@ class Vamana:
         child: dict[str, Any] = {}
         if self.quantization is not None:
             child.update(self.quantization.dump())
+        if self.alpha is not None:
+            child.update({"alpha": self.alpha})
+        if self.r is not None:
+            child.update({"r": self.r})
+        if self.l_search is not None:
+            child.update({"l_search": self.l_search})
         return {"vamana": child}
 
 class IndexOption:
