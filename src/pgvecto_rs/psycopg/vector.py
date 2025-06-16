@@ -49,8 +49,6 @@ def register_vector_info(context, info):
     adapters = context.adapters
     adapters.register_dumper("numpy.ndarray", text_dumper)
     adapters.register_dumper("numpy.ndarray", binary_dumper)
-    adapters.register_dumper(list, text_dumper)
-    adapters.register_dumper(list, binary_dumper)
     adapters.register_dumper(Vector, text_dumper)
     adapters.register_dumper(Vector, binary_dumper)
     adapters.register_loader(info.oid, VectorLoader)
